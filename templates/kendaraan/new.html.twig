@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Kendaraan{% endblock %}
+
+{% block body %}
+    <h1>Input Data Kendaraan Baru</h1>
+
+    {{ include('kendaraan/_form.html.twig') }}
+
+    <a href="{{ path('kendaraan_index') }}">Kembali ke daftar</a>
+{% endblock %}

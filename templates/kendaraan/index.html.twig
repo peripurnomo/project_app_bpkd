@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Daftar Kendaraan{% endblock %}
+
+{% block body %}
+    <h1>Kendaraan index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Jenis Kendaraan</th>
+                <th>Merk</th>
+                <th>Tahun Pembuatan</th>
+                <th>Nomor Rangka/Nomor Mesin</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for kendaraan in kendaraans %}
+            <tr>
+                <td>{{ kendaraan.id }}</td>
+                <td>{{ kendaraan.jenisKendaraan }}</td>
+                <td>{{ kendaraan.merk }}</td>
+                <td>{{ kendaraan.tahunPembuatan }}</td>
+                <td>{{ kendaraan.nomorRangka }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('kendaraan_show', {'id': kendaraan.id}) }}">Lihat</a>
+                    <a class="btn btn-primary" href="{{ path('kendaraan_edit', {'id': kendaraan.id}) }}"> | Ubah</a>
+                    {{ include('kendaraan/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Tidak ada data di temukan.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('kendaraan_new') }}">Input Data Baru</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Kendaraan{% endblock %}
+
+{% block body %}
+    <h1>Edit Kendaraan</h1>
+
+    {{ include('kendaraan/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('kendaraan_index') }}">Kembali ke daftar</a>
+
+    {{ include('kendaraan/_delete_form.html.twig') }}
+{% endblock %}

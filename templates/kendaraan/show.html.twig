@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kendaraan{% endblock %}
+
+{% block body %}
+    <h1>Kendaraan</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ kendaraan.id }}</td>
+            </tr>
+            <tr>
+                <th>Jenis Kendaraan</th>
+                <td>{{ kendaraan.jenisKendaraan }}</td>
+            </tr>
+            <tr>
+                <th>Merk</th>
+                <td>{{ kendaraan.merk }}</td>
+            </tr>
+            <tr>
+                <th>Tahun Pembuatan</th>
+                <td>{{ kendaraan.tahunPembuatan }}</td>
+            </tr>
+            <tr>
+                <th>Nomor Rangka/Nomor Mesin</th>
+                <td>{{ kendaraan.nomorRangka }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('kendaraan_index') }}">Kempali ke daftar</a>
+
+    <a href="{{ path('kendaraan_edit', {'id': kendaraan.id}) }}">edit</a>
+
+    {{ include('kendaraan/_delete_form.html.twig') }}
+{% endblock %}
